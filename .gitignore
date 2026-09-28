@@ -1,0 +1,16 @@
+.venv/
+.streamlit/
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+work/
+outputs/
+data/raw/*
+data/processed/*
+models/*
+reports/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
+!reports/.gitkeep

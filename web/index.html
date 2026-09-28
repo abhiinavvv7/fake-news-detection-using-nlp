@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2ead7">
+  <meta name="description" content="A small local NLP demo that reads news text patterns and estimates a fake or real label.">
+  <title>Paper Signals — News desk</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+  <main class="page-shell">
+    <header class="masthead">
+      <a class="wordmark" href="/" aria-label="Paper Signals home">
+        <span class="wordmark-mark" aria-hidden="true">P</span>
+        <span>Paper Signals</span>
+      </a>
+      <div class="edition"><span class="edition-dot"></span> NEWS DESK <span class="edition-divider">/</span> FIELD NOTE 01</div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="kicker"><span class="kicker-line"></span> A SMALL NLP STUDY · 2026</p>
+        <h1 id="page-title">Before you<br><em>pass it on.</em></h1>
+        <p class="hero-deck">A first-pass reading of a news headline or article, using patterns learned from a multilingual news dataset. Paste a passage to see what the model notices.</p>
+        <div class="hero-note"><span class="note-symbol">✳</span> Read slowly. Check twice. Share thoughtfully.</div>
+      </div>
+
+      <div class="illustration-card" aria-label="Ink illustration of a young newspaper reporter">
+        <div class="illustration-label">THE EVENING EDITION <span>·</span> VOL. 01</div>
+        <svg class="reporter-art" viewBox="0 0 320 320" role="img" aria-labelledby="art-title">
+          <title id="art-title">Anime-inspired ink drawing of a reporter holding a newspaper</title>
+          <circle cx="157" cy="158" r="119" fill="#eee2ca" stroke="#b9a98e" stroke-width="1.2" stroke-dasharray="2 7"/>
+          <path d="M64 293c7-38 32-61 72-67h49c40 6 65 29 72 67v13H64z" fill="#314c59" stroke="#192d3b" stroke-width="2.5"/>
+          <path d="m119 228 38 31 39-31-9 78h-61z" fill="#f7f0e1" stroke="#192d3b" stroke-width="2.2"/>
+          <path d="M91 141c-4-56 23-94 69-94 45 0 70 38 66 95l-15 49c-9 25-31 43-54 43-25 0-47-18-56-44z" fill="#efcbb1" stroke="#192d3b" stroke-width="2.7"/>
+          <path d="M84 145c-12-47 2-92 41-108 30-13 74-4 94 22 15 20 17 47 12 76-12-6-21-21-23-38-28 16-67 21-112 15-1 16-5 27-12 33z" fill="#253b49" stroke="#192d3b" stroke-width="2.7"/>
+          <path d="M91 111c-15 20-20 53-9 77 3-22 10-35 22-45m127-32c12 18 16 47 7 70-3-19-10-32-20-41" fill="none" stroke="#192d3b" stroke-width="9" stroke-linecap="round"/>
+          <path d="M119 150c6-5 14-5 20 0m31 0c6-5 14-5 20 0" fill="none" stroke="#192d3b" stroke-width="2.5" stroke-linecap="round"/>
+          <ellipse cx="132" cy="164" rx="3.7" ry="5.4" fill="#192d3b"/><ellipse cx="181" cy="164" rx="3.7" ry="5.4" fill="#192d3b"/>
+          <path d="M146 190c7 5 14 5 21 0" fill="none" stroke="#a95750" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M113 180c6 3 12 3 17 0m44 0c5 3 11 3 17 0" fill="none" stroke="#d68d7d" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="m99 260 32-16m83 16-31-16" stroke="#e8decc" stroke-width="2.2"/>
+          <g transform="rotate(-9 238 238)">
+            <path d="M210 190h68v87h-68z" fill="#fbf7ed" stroke="#192d3b" stroke-width="2.3"/>
+            <path d="M220 205h47m-47 9h38m-38 9h43m-43 9h34m-34 9h45m-45 9h39m-39 9h31" stroke="#718084" stroke-width="1.7"/>
+            <path d="M220 205h24" stroke="#c9503e" stroke-width="3.4"/>
+          </g>
+          <path d="M48 307h226" stroke="#9b8c73" stroke-width="1.3"/>
+          <circle cx="254" cy="64" r="21" fill="#c9503e"/>
+          <text x="254" y="70" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#fff8eb">読</text>
+        </svg>
+        <div class="illustration-caption">LOOK CLOSER. READ SLOWER.</div>
+      </div>
+    </section>
+
+    <div class="section-rule"><span>01</span><i></i><span>THE READING DESK</span></div>
+
+    <section class="desk" aria-label="Analyze a passage">
+      <form id="analysis-form" class="input-panel">
+        <div class="panel-heading">
+          <div><p class="micro-label">YOUR CLIPPING</p><h2>What did you read?</h2></div>
+          <span class="step-stamp">NO. 01</span>
+        </div>
+        <label class="sr-only" for="article-text">Paste a headline or article text</label>
+        <textarea id="article-text" name="text" maxlength="40000" placeholder="Paste a headline or article text here…&#10;&#10;A few sentences give the model more to work with than a short phrase." spellcheck="false"></textarea>
+        <div class="input-meta"><span id="word-count">0 words</span><span>Processed on this device</span></div>
+        <div class="form-actions">
+          <button id="analyze-button" class="ink-button" type="submit" disabled>Read the signals <span aria-hidden="true">↗</span></button>
+          <button id="sample-button" class="text-button" type="button">Load a demo text</button>
+          <button id="clear-button" class="clear-button" type="button" aria-label="Clear text">Clear</button>
+        </div>
+        <p class="sample-note" id="sample-note" hidden>Fictional demo text · for trying the interface only</p>
+      </form>
+
+      <aside class="result-panel" aria-live="polite" aria-atomic="true">
+        <div class="panel-heading result-heading">
+          <div><p class="micro-label">THE MODEL'S READING</p><h2>Pattern report</h2></div>
+          <span class="signal-icon" aria-hidden="true">⌁</span>
+        </div>
+        <div id="result-content" class="result-content idle">
+          <div class="idle-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="idle-title">Waiting for a passage.</p>
+          <p class="idle-copy">Add a headline or article. The model will compare its language patterns with examples from its training set.</p>
+        </div>
+        <div id="result-disclaimer" class="result-disclaimer">A model estimate is not an independent fact-check. Always check the source, date, and evidence.</div>
+      </aside>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <div class="method-title-row"><div><p class="micro-label">MARGIN NOTES</p><h2 id="method-title">How this page reads</h2></div><span class="method-aside">THREE QUIET STEPS · ONE IMPERFECT SIGNAL</span></div>
+      <div class="method-grid">
+        <article class="method-card"><span class="method-num">01 <i>— NOTE</i></span><h3>Words become signals</h3><p>TF-IDF gives more weight to terms that help distinguish articles in the training set.</p></article>
+        <article class="method-card"><span class="method-num">02 <i>— NOTE</i></span><h3>Patterns are compared</h3><p>Logistic Regression compares those signals with examples labeled fake and real.</p></article>
+        <article class="method-card"><span class="method-num">03 <i>— NOTE</i></span><h3>You decide what follows</h3><p>Use the output as a prompt to verify the source and evidence—not as a verdict.</p></article>
+      </div>
+    </section>
+
+    <footer class="footer"><span>BUILT FOR A B.TECH NLP PROJECT</span><span>POLYGLOTFAKEFACTS V2.0 <b>·</b> NOT A FACT-CHECK</span></footer>
+  </main>
+</body>
+</html>
