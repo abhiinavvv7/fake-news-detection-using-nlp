@@ -2,6 +2,8 @@
 
 A B.Tech project that prepares labeled news text from **PolyglotFakeFacts v2.0**, compares two TF-IDF classifiers, visualizes their scores in a Jupyter notebook, and provides a small interactive browser demo called **Paper Signals**.
 
+**Live demo:** [paper-signals.onrender.com](https://paper-signals.onrender.com)
+
 > The classifier detects patterns in its training data. Its output and confidence are estimates, not a fact-check.
 
 ## What the project does
