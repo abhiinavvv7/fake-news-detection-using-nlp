@@ -9,6 +9,7 @@ outputs/
 data/raw/*
 data/processed/*
 models/*
+!models/tfidf_logistic_regression.joblib
 reports/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep

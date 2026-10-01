@@ -94,6 +94,12 @@ Open [http://127.0.0.1:8501](http://127.0.0.1:8501). Paste at least five words a
 
 If startup says the model is missing, run `python src/inspect_data.py` and `python src/train_baseline.py` first. If a port error says 8501 is already in use, stop the other copy of the app before restarting.
 
+## 6. Deploy the web demo for free
+
+The repository includes a Render Blueprint (`render.yaml`). Push this project to a GitHub repository, then in Render choose **New → Blueprint** and connect that repository. Render will create the `paper-signals` web service and deploy it to a public `onrender.com` URL. The trained `models/tfidf_logistic_regression.joblib` file must be committed with the project; the raw and processed datasets are not needed by the live demo.
+
+Render's free web services can sleep after inactivity, so the first request after a quiet period may take longer. See [Render's free instance details](https://render.com/docs/free). The model artifact is pinned to scikit-learn 1.6.1 to match the version used to train it.
+
 ## Notes for interpreting results
 
 This is a first academic baseline, not a reliable truth-verification system. Accuracy can be influenced by publisher, topic, translation, and dataset artifacts. Treat the app's confidence as the model's probability estimate; check the source, date, and evidence independently. Useful next evaluations include comparing translated and original text, reporting performance by language, and testing a source-disjoint split to measure publisher leakage.

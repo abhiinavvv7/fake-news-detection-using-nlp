@@ -1,6 +1,7 @@
 """Serve the local Fake News Detection demo and its prediction endpoint."""
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -10,8 +11,8 @@ import joblib
 ROOT = Path(__file__).resolve().parent
 WEB_DIR = ROOT / "web"
 MODEL_PATH = ROOT / "models" / "tfidf_logistic_regression.joblib"
-HOST = "127.0.0.1"
-PORT = 8501
+HOST = os.environ.get("HOST", "0.0.0.0")
+PORT = int(os.environ.get("PORT", "8501"))
 MAX_TEXT_LENGTH = 40_000
 
 
